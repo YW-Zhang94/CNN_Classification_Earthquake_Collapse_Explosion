@@ -16,7 +16,7 @@ unzip list.zip to release the lists of events
 
 # Models
 
-Trained models with origianl dataset are under Models/Original
+Trained models with origianl dataset are under Models/Original \n
 Trained models with refined dataset are under Models/Refined
 New trained models with Train_original/train.py are under Models/New_1
 New trained models with Train_refined/train.py are under Models/New_2
