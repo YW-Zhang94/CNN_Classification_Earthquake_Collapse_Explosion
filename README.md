@@ -24,7 +24,7 @@ in each *.phase.info.ls under list: \
 list.error contains events have different labels between human and CNN in the original training \
     1st column is original human label \
     2nd column is event name \
-    3rd, 4th, and 5th columns are output of CNN with majority voting. There are represent possibilities of earthquake, collapse, and explosion, respectively. \
+    3rd, 4th, and 5th columns are output of CNN with majority voting. They represent possibilities of earthquake, collapse, and explosion, respectively. \
     6th column is new label after manually checking \
     7th column is 0 (remove) and 1 (keep)
 
