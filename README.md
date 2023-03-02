@@ -1,6 +1,6 @@
 # CNN_Classification_Earthquake_Collapse_Explosion
 
-**Please report confusions/errors to yzcd4@umsystem.edu
+**Please report confusions/errors to yzcd4@umsystem.edu 
 
 # Versions:
 python 3.6.9 \
@@ -12,7 +12,21 @@ Keras 2.2.5
 
 # Data
 
-unzip list.zip to release the lists of events
+unzip list.zip to release the lists of events \
+
+in each *.phase.info.ls under list: \
+	1st column is station name \
+ 	2nd column is Picking phases \
+	3rd and 4th columns are Picking time \
+	5th column is magnitude \
+	6th column is event type 
+    
+list.error contains events have different labels between human and CNN in the original training \
+    1st column is original human label \
+    2nd column is event name \
+    3rd, 4th, and 5th columns are output of CNN with majority voting. There are represent possibilities of earthquake, collapse, and explosion, respectively. \
+    6th column is new label after manually checking \
+    7th column is 0 (remove) and 1 (keep)
 
 # Models
 
