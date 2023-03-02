@@ -12,7 +12,7 @@ Keras 2.2.5
 
 # Data
 
-unzip list.zip to release the lists of events \
+unzip list.zip to release the lists of events 
 
 in each *.phase.info.ls under list: \
 	1st column is station name \
