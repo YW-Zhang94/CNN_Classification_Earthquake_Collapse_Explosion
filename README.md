@@ -12,6 +12,9 @@ Keras 2.2.5
 
 # Data
 
+Waveform data can be found at 10.6084/m9.figshare.22207498 \
+	unzip under the Data/
+
 unzip list.zip to release the lists of events 
 
 in each *.phase.info.ls under list: \
