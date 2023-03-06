@@ -29,12 +29,10 @@ x_eq, y_eq, nneq = [], [], []
 x_cp, y_cp, nncp = [], [], []
 x_ep, y_ep, nnep = [], [], []
 
-
 with open('../Data/info.list') as l:
     for line in l:
         rt_list=str(line.split()[0])
         print(rt_list)
-        remain_01=0
         with open('../Data/'+rt_list) as e:
             for neq in e:
                 if neq.split()[1]=='Sg' or neq.split()[1]=='SMZ': continue
@@ -55,41 +53,7 @@ with open('../Data/info.list') as l:
                 trs=[]
                 for i in range(5000):
                     trs.append(np.array([sz[i], se[i], sn[i]]))
-                    
-                ncheck=0    #check if event has different label with original label
-                remain_01=1 #check if event is remained after manually checking
-                with open('../Data/list.error') as le:
-                    for line_le in le:
-                        le_neq=str(line_le.split()[1])
-                        le_type=str(line_le.split()[5])
-                        le_01=int(line_le.split()[6])
-                        if le_neq == rt_list[5:20]:
-                            #print(le_neq)
-                            if le_01 == 0:
-                                remain_01=0
-                                ncheck=1
-                                break
-                            if le_type == 'EQ':
-                                c=[1,0,0]
-                                X_eq.append(np.array(trs))
-                                Y_eq.append(c)
-                                nev_eq.append(rt_list[5:25]+'_'+s)
-                                
-                            if le_type == 'CP':
-                                c=[0,1,0]
-                                X_cl.append(np.array(trs))
-                                Y_cl.append(c)
-                                nev_cl.append(rt_list[5:25]+'_'+s)
-                                
-                            if le_type == 'EP':
-                                c=[0,0,1]
-                                X_ep.append(np.array(trs))
-                                Y_ep.append(c)
-                                nev_ep.append(rt_list[5:25]+'_'+s)
-                            
-                            ncheck=1    
-                            break
-                if ncheck==1: continue
+                
                 
                 if str(neq.split()[5]) == 'earthquake': 
                     c=[1,0,0]
@@ -106,28 +70,28 @@ with open('../Data/info.list') as l:
                     X_ep.append(np.array(trs))
                     Y_ep.append(c)
                     nev_ep.append(rt_list[5:25]+'_'+s)
-                
-            if remain_01 == 1:
-                if c[0]==1 and len(nev_eq)!=0: 
-                    x_eq.append(X_eq)
-                    y_eq.append(Y_eq)
-                    nneq.append(nev_eq)
-                    X_eq, Y_eq, nev_eq = [], [], []
-                if c[1]==1 and len(nev_cl)!=0: 
-                    x_cp.append(X_cl)
-                    y_cp.append(Y_cl)
-                    nncp.append(nev_cl)
-                    X_cl, Y_cl, nev_cl = [], [], []
-                if c[2]==1 and len(nev_ep)!=0: 
-                    x_ep.append(X_ep)
-                    y_ep.append(Y_ep)
-                    nnep.append(nev_ep)
-                    X_ep, Y_ep, nev_ep = [], [], []
+					
+			if float(neq.split()[4])>=1.5 and str(neq.split()[5]) == 'earthquake': 
+                x_eq.append(X_eq)
+                y_eq.append(Y_eq)
+                nneq.append(nev_eq)
+                X_eq, Y_eq, nev_eq = [], [], []
+            if float(neq.split()[4])>=1.5 and str(neq.split()[5]) == 'collapse': 
+                x_cp.append(X_cl)
+                y_cp.append(Y_cl)
+                nncp.append(nev_cl)
+                X_cl, Y_cl, nev_cl = [], [], []
+            if float(neq.split()[4])>=1.5 and str(neq.split()[5]) == 'explode': 
+                x_ep.append(X_ep)
+                y_ep.append(Y_ep)
+                nnep.append(nev_ep)
+                X_ep, Y_ep, nev_ep = [], [], []
             
             
             print(np.array(x_eq).shape, np.array(y_eq).shape)
             print(np.array(x_cp).shape, np.array(y_cp).shape)
             print(np.array(x_ep).shape, np.array(y_ep).shape)
+
             
 #seperate data into 10 groups
 X_eq, Y_eq, neq = [], [], []
