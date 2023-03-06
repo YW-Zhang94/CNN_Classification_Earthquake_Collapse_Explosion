@@ -45,4 +45,6 @@ Use Train_refined/train.py to train CNN with refined labels
 
 # Loading
 
+Use Load_original/load.py to test with original labels \
+Use Load_refined/load.py to test with refined labels \
 change model_rout in line 21 to load different models
