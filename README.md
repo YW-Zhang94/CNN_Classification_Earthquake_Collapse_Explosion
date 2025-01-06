@@ -1,6 +1,7 @@
 # CNN_Classification_Earthquake_Collapse_Explosion
 
 The technique is decribed in this paper: https://doi.org/10.1785/0120240179
+
 **Please report confusions/errors to yzcd4@umsystem.edu 
 
 # Versions:
